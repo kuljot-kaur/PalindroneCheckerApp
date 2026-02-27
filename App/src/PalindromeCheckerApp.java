@@ -1,6 +1,6 @@
 /**
  * @author Kuljot
- * @version 3.0
+ * @version 4.0
  */
 public class PalindromeCheckerApp {
 
@@ -18,10 +18,11 @@ public class PalindromeCheckerApp {
             reversed = reversed + original.charAt(i);
         }
 
+        System.out.println("input : " + original);
         if (original.equals(reversed)) {
-            System.out.println(original + " is a Palindrome.");
+            System.out.println("is a Palindrome? : true");
         } else {
-            System.out.println(original + " is NOT a Palindrome.");
+            System.out.println("is a Palindrome? : false");
         }
             }
         }
