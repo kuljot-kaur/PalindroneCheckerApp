@@ -1,28 +1,41 @@
+import java.util.Stack;
+
 public class PalindromeCheckerApp {
 
-    public static boolean isPalindrome(String input) {
-        // Normalize: remove spaces and convert to lowercase
-        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+    // PalindromeChecker class encapsulates palindrome logic
+    static class PalindromeChecker {
 
-        // Reverse normalized string
-        String reversed = "";
-        for (int i = normalized.length() - 1; i >= 0; i--) {
-            reversed += normalized.charAt(i);
+        // Method to check palindrome using Stack
+        public boolean checkPalindrome(String input) {
+            Stack<Character> stack = new Stack<>();
+
+            // Push characters onto stack
+            for (int i = 0; i < input.length(); i++) {
+                stack.push(input.charAt(i));
+            }
+
+            // Pop characters and build reversed string
+            String reversed = "";
+            while (!stack.isEmpty()) {
+                reversed += stack.pop();
+            }
+
+            // Compare original and reversed strings
+            return input.equals(reversed);
         }
-
-        // Compare normalized and reversed strings
-        return normalized.equals(reversed);
     }
 
     public static void main(String[] args) {
-        String input = "A man a plan a canal Panama";
+        PalindromeChecker checker = new PalindromeChecker();
 
-        boolean result = isPalindrome(input);
+        String input = "radar";
+
+        boolean result = checker.checkPalindrome(input);
 
         if (result) {
-            System.out.println("\"" + input + "\" is a Palindrome.");
+            System.out.println(input + " is a Palindrome.");
         } else {
-            System.out.println("\"" + input + "\" is NOT a Palindrome.");
+            System.out.println(input + " is NOT a Palindrome.");
         }
     }
 }
