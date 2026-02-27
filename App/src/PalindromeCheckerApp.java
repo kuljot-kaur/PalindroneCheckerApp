@@ -1,6 +1,6 @@
 /**
  * @author Kuljot
- * @version 2.0
+ * @version 3.0
  */
 public class PalindromeCheckerApp {
 
@@ -9,20 +9,20 @@ public class PalindromeCheckerApp {
         System.out.println("Welcome to the Palindrome Checker Management System");
         System.out.println("Version : 1.0");
         System.out.println("System initialized successfully");
-                String word = "madam";
 
-                String reversed = "";
+        String original = "level";
+        String reversed = "";
 
-                for (int i = word.length() - 1; i >= 0; i--) {
-                    reversed = reversed + word.charAt(i);
-                }
 
-        System.out.println("Input text :" + word);
-                if (word.equals(reversed)) {
-                    System.out.println("Is it a Palindrome? : true");
-                } else {
-                    System.out.println("Is it a Palindrome? : false");
-                }
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
+        }
+
+        if (original.equals(reversed)) {
+            System.out.println(original + " is a Palindrome.");
+        } else {
+            System.out.println(original + " is NOT a Palindrome.");
+        }
             }
         }
 
