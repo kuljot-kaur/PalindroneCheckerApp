@@ -1,4 +1,4 @@
-# PalindroneCheckerApp
+# PalindromeCheckerApp
 ##Project Title
 Palindrome Checker Application
 
