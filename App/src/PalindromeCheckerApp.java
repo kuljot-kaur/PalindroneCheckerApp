@@ -1,33 +1,28 @@
-/**
- * @author Kuljot
- * @version 9.0
- */
-
 public class PalindromeCheckerApp {
 
-    // Recursive function to check palindrome
-    public static boolean isPalindrome(String str, int start, int end) {
-        // Base condition: crossed pointers or single char left
-        if (start >= end) {
-            return true;
+    public static boolean isPalindrome(String input) {
+        // Normalize: remove spaces and convert to lowercase
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+
+        // Reverse normalized string
+        String reversed = "";
+        for (int i = normalized.length() - 1; i >= 0; i--) {
+            reversed += normalized.charAt(i);
         }
-        // If mismatch, not palindrome
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
-        // Recursive call moving towards the middle
-        return isPalindrome(str, start + 1, end - 1);
+
+        // Compare normalized and reversed strings
+        return normalized.equals(reversed);
     }
 
     public static void main(String[] args) {
-        String input = "racecar";
+        String input = "A man a plan a canal Panama";
 
-        boolean result = isPalindrome(input, 0, input.length() - 1);
+        boolean result = isPalindrome(input);
 
         if (result) {
-            System.out.println(input + " is a Palindrome.");
+            System.out.println("\"" + input + "\" is a Palindrome.");
         } else {
-            System.out.println(input + " is NOT a Palindrome.");
+            System.out.println("\"" + input + "\" is NOT a Palindrome.");
         }
     }
 }
